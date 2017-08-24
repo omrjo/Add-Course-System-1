@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    h1 {
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .big {
+        border: 1px solid gainsboro;
+        width: 50%;
+        position: center;
+        margin: 0 auto;
+        height: 100%;
+    }
+
+    input[type = text], input[type = password] {
+        border: 1px solid gainsboro;
+        padding: 10px;
+        margin: 8px, 0;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .box {
+        padding: 16px;
+        width: 50%;
+        height: 100%;
+    }
+
+    .button {
+        border: 1px solid gainsboro;
+        padding: 10px;
+        margin: 15px;
+        display: inline-block;
+        width: 50%;
+    }
+
+        .button:hover {
+            cursor: pointer;
+            background-color: black;
+            color: whitesmoke;
+        }
+
+    .avatar {
+        width: 10%;
+        height: 10%;
+    }
+
+    .imgbox {
+        margin: 10px;
+        text-align: center;
+    }
+
+    input.error{
+        background-color:red;
+    }
+    label.error{
+        color:red;
+    }
+</style>
+<h1> Login Page</h1>
+<form id="regForm" method="post">
+    <div style="color:red;text-align:center;margin-bottom:10px;">
+        @ViewBag.Message
+    </div>
+    <div class="big">
+        <div class="imgbox">
+            <img src="~/Images/lo.png" alt="Login" class="avatar" />
+        </div>
+        <div class="box">
+            <div>
+                <label>User Name:</label>
+            </div>
+            <div>
+                <input type="text" name="UserName" id="UserName" required/>
+            </div>
+            <div>
+                <label>Password:</label>
+            </div>
+            <div>
+                <input type="password" name="UserPassword" id="UserPassword" required/>
+            </div>
+            <div>
+                <label>Birth Date:</label>
+            </div>
+            <div>
+                <input type="date" name="Date" id="Date" />
+            </div>
+
+            <input class="button" type="submit"  value="Register" />
+        </div>
+    </div>
+</form>
+
+<script>
+        $("#regForm").validate({
+            rules: {
+                UserName: "required",
+                UserPassword: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 15
+                }
+            },
+            messages: {
+                UserName: "Please enter a valid username.",
+                UserPassword: "Please enter a valid password",
+                Date: "Please enter a valid date."
+            }
+        })
+</script>
+
+

@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .drop{
+        margin:10px;
+    }
+
+    .button {
+        border: 1px solid gainsboro;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block;
+        width:15%;
+    }
+    .button:hover{
+        cursor:pointer;
+        background-color:black;
+        color:whitesmoke;
+    }
+   
+    table {
+        border-collapse:collapse;
+        width: 100%;
+    }
+    tr, th,td{
+        padding:10px;
+        text-align:center;
+    }
+    th{
+        background-color:black;
+        color:whitesmoke;
+    }
+
+</style>
+
+<h3>Dashboard</h3>
+<form method="post" action="@Url.Action("addCourse","Login")">
+   <div style="color:red">
+       @ViewData["error"]
+   </div> 
+    <label> Select Course to add: </label>
+    <div class="drop">
+        @Html.DropDownList("CourseID", "Select Course")
+    </div>
+    <div class="input">
+        <input type="hidden" name="UserName" value="@Request.QueryString["UserName"]" />
+        <input type="submit" value="Add" class="button" />
+    </div>
+</form> 
+
+<div>
+    <table>
+        <tr>
+            <th>Course Name</th>
+            <th>Course Credit</th>
+            <th></th>
+        </tr>
+        @if (ViewBag.CourseList != null)
+        {
+            foreach (var course in ViewBag.CourseList)
+            {
+            <tr>
+                <td>
+                    @course.CourseName
+                </td>
+                <td>
+                    @course.CourseCredit
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "deleteCourse", new {CourseID = course.CourseID,
+                   UserName = Request.QueryString["UserName"] })
+                </td>
+            </tr>
+            }
+        }
+    </table>
+</div>

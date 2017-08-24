@@ -1,0 +1,49 @@
+﻿h1{
+    text-align:center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.big {
+    border: 1px solid gainsboro;
+    width:50%;
+    position: center;
+    margin: 0 auto;
+    height:100%;
+}
+
+input[type=text], input[type=password] {
+    border: 1px solid gainsboro;
+    padding: 10px;
+    margin: 8px,0;
+    display: inline-block;
+    width: 100%;
+}
+
+.box {
+    padding: 16px;
+    width: 50%;
+    height: 100%;
+}
+
+.button {
+    border: 1px solid gainsboro;
+    padding: 10px;
+    margin: 15px;
+    display: inline-block;
+    width: 50%;
+}
+
+.button:hover {
+        cursor: pointer;
+        background-color: black;
+        color: whitesmoke;
+}
+
+.avatar{
+    width:10%;
+    height:10%;
+}
+.imgbox{
+    margin:10px;
+    text-align:center;
+}

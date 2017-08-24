@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link type="text/css" href="~/Content/MainPage.css" rel="stylesheet"/>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    
+</head>
+<body>
+    <div class="top-nav">
+        <a href="@Url.Action("Index","Home")">Home</a>
+        <a href="@Url.Action("log","Home")">Login</a>
+        <a href="@Url.Action("Index","Register")">Register</a>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+<div style="clear:both;height:50px;"></div>
+        <footer>
+            <p>&copy; @DateTime.Now.Year Created By Omar</p>
+        </footer>
+</body>
+</html>
